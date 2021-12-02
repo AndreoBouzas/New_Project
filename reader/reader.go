@@ -8,7 +8,7 @@ import (
 
 var path string = "/home/andreo/Área de Trabalho/estudos_golang/The-Project/files/contatos.txt"
 
-func initFile(path string) string {
+func InitFile(path string) string {
 	file, err := ioutil.ReadFile(path)
 	if err != nil {
 		log.Fatalf("Erro ao abrir o arquivo: %s", err)
@@ -19,8 +19,8 @@ func initFile(path string) string {
 	return strifile
 }
 
-func main() {
+func Reader() {
 
-	fmt.Printf("%#v", initFile(path))
+	fmt.Printf("%#v", InitFile(path))
 
 }
