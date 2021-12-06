@@ -4,9 +4,11 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+
+	"github.com/AndreoBouzas/New_Project/utils"
 )
 
-var path string = "/home/andreo/Área de Trabalho/estudos_golang/The-Project/files/contatos.txt"
+var path string = "/home/andreo/Área de Trabalho/estudos_golang/New_Project/files/contatos.txt"
 
 func InitFile(path string) string {
 	file, err := ioutil.ReadFile(path)
@@ -21,6 +23,9 @@ func InitFile(path string) string {
 
 func Reader() {
 
-	fmt.Printf("%#v", InitFile(path))
+	thisfile := InitFile(path)
+	patern := `m`
+	newfile := utils.FindInText(thisfile, patern)
+	fmt.Println(newfile)
 
 }
