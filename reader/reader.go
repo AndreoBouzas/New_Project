@@ -1,14 +1,13 @@
 package Reader
 
 import (
-	"fmt"
 	"io/ioutil"
 	"log"
 
-	"github.com/AndreoBouzas/New_Project/utils"
+	Utils "github.com/AndreoBouzas/NewProject/utils"
 )
 
-var path string = "/home/andreo/Área de Trabalho/estudos_golang/New_Project/files/contatos.txt"
+var path string = "files/teste.txt"
 
 func InitFile(path string) string {
 	file, err := ioutil.ReadFile(path)
@@ -21,11 +20,20 @@ func InitFile(path string) string {
 	return strifile
 }
 
-func Reader() {
+func Reader(patern string) [][]string {
+	wordscounter := `\w+'*[[:word:]]*`
+	digitscounter := `\d`
+	var newfile [][]string
+	if patern == "digitos" {
+		thisfile := InitFile(path)
+		newfile = Utils.FindInText(thisfile, digitscounter)
+	} else if patern == "palavras" {
+		thisfile := InitFile(path)
+		newfile = Utils.FindInText(thisfile, wordscounter)
+	} else {
+		log.Fatalf("padrão de pesquisa incorreto: %s", patern)
+	}
 
-	thisfile := InitFile(path)
-	patern := `m`
-	newfile := utils.FindInText(thisfile, patern)
-	fmt.Println(newfile)
+	return newfile
 
 }
