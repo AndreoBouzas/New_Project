@@ -1,6 +1,7 @@
 package Reader
 
 import (
+	"fmt"
 	"io/ioutil"
 	"log"
 
@@ -36,4 +37,25 @@ func Reader(patern string) [][]string {
 
 	return newfile
 
+}
+func ReadTimer(patern string) string {
+
+	x := 300
+	y := len(Reader(patern))
+	var tempo string
+	if y > x {
+		timer := y / x
+		if y%x != 0 {
+			timerstring := fmt.Sprintf("%#v", timer)
+			tempo = "Serão necessários " + timerstring + " minuto(s) em média, para ler este texto!"
+			return tempo
+		}
+	} else if y == x {
+		tempo := "Será necessário 1 minuto em média, para ler este texto!"
+		return tempo
+	} else {
+		tempo := "Serão necessários alguns segundos para ler este texto!"
+		return tempo
+	}
+	return tempo
 }
