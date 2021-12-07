@@ -21,7 +21,7 @@ func InitFile(path string) string {
 }
 
 func Reader(patern string) [][]string {
-	wordscounter := `\w+'*[[:word:]]*`
+	wordscounter := `\S+`
 	digitscounter := `\d`
 	var newfile [][]string
 	if patern == "digitos" {
