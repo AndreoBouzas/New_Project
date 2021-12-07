@@ -14,11 +14,14 @@ func main() {
 	var patern string
 	fmt.Scanln(&patern)
 	//fmt.Println(Reader.Reader())
-
-	rann := Reader.Reader(patern)
-	for i := 0; i < len(rann); i++ {
-		log.Println((rann[i]), logthis)
+	if patern == "palavras" {
+		verifiedtext := Reader.Reader(patern)
+		for i := 0; i < len(verifiedtext); i++ {
+			log.Println((verifiedtext[i]), logthis)
+		}
+		log.Println(Reader.ReadTimer(patern), logthis)
+		fmt.Println(Reader.ReadTimer(patern))
+		fmt.Println("o mesmo contém ", len(verifiedtext), patern)
 	}
-	fmt.Println(len(rann))
 
 }
