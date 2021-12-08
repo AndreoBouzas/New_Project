@@ -13,7 +13,7 @@ func main() {
 	fmt.Println("informe o padrão de pesquisa do texto:")
 	var patern string
 	fmt.Scanln(&patern)
-	//fmt.Println(Reader.Reader())
+
 	if patern == "palavras" {
 		verifiedtext := Reader.Reader(patern)
 		for i := 0; i < len(verifiedtext); i++ {
