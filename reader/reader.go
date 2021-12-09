@@ -78,17 +78,13 @@ func ReadTimer(patern string) string {
 	//Definição da variável com a quantidade média de palavras lidas em um minuto
 	mediaPadrao := 300.0
 	//Definição da variável com a quantidade de palavras contidas no texto analisado
-	palavrasDoTexto := len(Reader(patern))
-	palavrasDoTextoFloat := float64(palavrasDoTexto)
+	palavrasDoTexto := float64(len(Reader(patern)))
 	//Definição da vairável que recebera o tempo estimado
 	var tempo string
 	//Se a quantidade de palavras for maior que a quantidade média padrão
-	if palavrasDoTextoFloat > mediaPadrao {
+	if palavrasDoTexto > mediaPadrao {
 		//A variável de timer recebe o resultado da divisão de palavras do texto por média padrão
-		timer := palavrasDoTextoFloat / mediaPadrao
-		fmt.Println("Valor de timer:", timer)
-		//Se o resto de divisão de palavras do texto por média padrão for diferente de zero,
-		//timed := fmt.Sprintf("%1.0f", timer)
+		timer := palavrasDoTexto / mediaPadrao
 		//tranforma em string o valor todo
 		timerstring := fmt.Sprintf("%2.2f", timer)
 		//divide o valor string pelo ponto "."
@@ -107,23 +103,23 @@ func ReadTimer(patern string) string {
 		calculatedsegs := floatsegtimer / 0.60
 		//calcula o tempo
 		timer = floatmintimer + calculatedsegs
-
-		fmt.Println("Valor de timerstring:", timerstring)
-		fmt.Println("Valor de splitttime:", splittimed)
-		fmt.Println("Valor de timersegundos:", timersegundos)
-		fmt.Println("Valor de timersegundoscomzero:", timersegundoscomzero)
-		fmt.Println("Valor de floatsegtimer:", floatsegtimer)
-		fmt.Println("Valor de calculatedsegs:", calculatedsegs)
-		fmt.Println("Valor de timer:", timer)
-
+		//Guarda na vairável o valor de tempo formatado
 		finaltimer := fmt.Sprintf("%0.2f", timer)
+		//A variável "tempo" recebe a formatação com as devidas informações
 		tempo = "Serão necessários " + finaltimer + " minuto(s) em média, para ler este texto!"
+		//retorna a variável tempo
 		return tempo
-	} else if palavrasDoTextoFloat == mediaPadrao {
+		//Se a quantidade de palavras for igual a quantidade média padrão
+	} else if palavrasDoTexto == mediaPadrao {
+		//A variável "tempo" recebe a formatação com as devidas informações
 		tempo := "Será necessário 1 minuto em média, para ler este texto!"
+		//Retorna a variável tempo
 		return tempo
+		//Se a quantidade de palavras for menor que a quantidade média padrão
 	} else {
+		//A variável "tempo" recebe a formatação com as devidas informações
 		tempo := "Serão necessários alguns segundos para ler este texto!"
+		//Retorna a variável tempo
 		return tempo
 	}
 }
