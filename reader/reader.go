@@ -19,6 +19,7 @@ var path string = "files/teste.txt"
 func InitFile(path string) string {
 	//Declarando a variável que recebe o arquivo lido
 	file, err := ioutil.ReadFile(path)
+
 	//Verificando se houve algum erro durante a leitura do arquivo
 	if err != nil {
 		//Caso ocorra algum erro, é gravado um log do erro!
@@ -26,6 +27,7 @@ func InitFile(path string) string {
 		//Print Visual para informar a ocorrência do erro!
 		fmt.Printf("Erro ao abrir o arquivo: %s", err)
 	}
+
 	//Conversão do file para o tipo String
 	strifile := string(file)
 
@@ -75,6 +77,7 @@ func Reader(patern string) [][]string {
 //A função ReadTimer faz  uma contagem de tempo estimado de leitura baseada na quantidade de palavras
 //Contidas no texto, em comparação com o tempo médio de leitura (300 palavras por minuto)
 func ReadTimer(patern string) string {
+
 	//Definição da variável com a quantidade média de palavras lidas em um minuto
 	mediaPadrao := 300.0
 	//Definição da variável com a quantidade de palavras contidas no texto analisado
@@ -111,6 +114,7 @@ func ReadTimer(patern string) string {
 		return tempo
 		//Se a quantidade de palavras for igual a quantidade média padrão
 	} else if palavrasDoTexto == mediaPadrao {
+
 		//A variável "tempo" recebe a formatação com as devidas informações
 		tempo := "Será necessário 1 minuto em média, para ler este texto!"
 		//Retorna a variável tempo
