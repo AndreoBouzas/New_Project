@@ -45,6 +45,7 @@ func main() {
 		}
 		//Log de inicialização da contagem de palavras do texto
 		log.Println("|  Iniciando o calculo de tempo estimado de leitura")
+		log.Println("|  ", palavras)
 		//Estrutura de laço simples de espera de 3 segundos
 		for i := 0; i <= 5; i++ {
 			//Print Visual para formatar a exibição do resultado

@@ -56,6 +56,13 @@ func Reader(patern string) [][]string {
 		//A variável thisfile e como padrão de regexp a variável digitscounter
 		newfile = Utils.FindInText(thisfile, digitscounter)
 		//Caso tenha sido passado o padrão "palavras"
+	} else if patern == "csv" {
+		//Declaração da variável que recebe o retorno da função InitFile baseada no path padrão
+		thisfile := InitFile(path)
+		//Declaração da variável que recebe o retorno da função FindInText recebendo como argumento
+		//A variável thisfile e como padrão de regexp a variável wordscounter
+		newfile = Utils.FindInText(thisfile, wordscounter)
+
 	} else if patern == "palavras" {
 		//Declaração da variável que recebe o retorno da função InitFile baseada no path padrão
 		thisfile := InitFile(path)
